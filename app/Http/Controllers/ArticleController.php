@@ -46,7 +46,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view("articles.edit",compact("article"));
     }
 
     /**
@@ -54,7 +54,8 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article->update($request->all());
+        return redirect()->route("articles.show",$article);
     }
 
     /**

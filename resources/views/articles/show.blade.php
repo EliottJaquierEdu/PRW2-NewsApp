@@ -7,3 +7,4 @@
     @method("DELETE")
     <input type="submit" value="Supprimer">
 </form>
+<a href="{{route("articles.edit",$article)}}">Modifier</a>
