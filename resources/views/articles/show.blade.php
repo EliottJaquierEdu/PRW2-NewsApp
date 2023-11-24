@@ -1,3 +1,6 @@
+@extends('layout')
+@section('title','Article')
+@section('content')
 <h2>{{ $article->title }}</h2>
 <article>
     {{ $article->body }}
@@ -8,3 +11,4 @@
     <input type="submit" value="Supprimer">
 </form>
 <a href="{{route("articles.edit",$article)}}">Modifier</a>
+@endsection
