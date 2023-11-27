@@ -18,8 +18,8 @@ class Article extends Model
     {
         //$this->archived_at = now();
         //$this->save();
-                        $this->timestamps = false;
-                        $this->update(['archived_at' => now()]);
-                        $this->timestamps = true;
-                    }
+                            $this->timestamps = false;
+                            $this->update(['archived_at' => now()]);
+                            $this->timestamps = true;
+                        }
 }
