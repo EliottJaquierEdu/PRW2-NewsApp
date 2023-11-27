@@ -13,7 +13,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::unarchived();
-        return view("articles.index",["articles"=>$articles]);
+        return view("articles.index", ["articles" => $articles]);
     }
 
     /**
@@ -21,7 +21,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view("articles.create",["article"=>new Article]);
+        return view("articles.create", ["article" => new Article()]);
     }
 
     /**
@@ -38,7 +38,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view("articles.show",compact("article"));
+        return view("articles.show", compact("article"));
     }
 
     /**
@@ -46,7 +46,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view("articles.edit",compact("article"));
+        return view("articles.edit", compact("article"));
     }
 
     /**
@@ -55,7 +55,7 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $article->update($request->all());
-        return redirect()->route("articles.show",$article);
+        return redirect()->route("articles.show", $article);
     }
 
     /**
