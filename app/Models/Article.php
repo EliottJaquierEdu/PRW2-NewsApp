@@ -10,10 +10,10 @@ class Article extends Model
     protected $fillable = ["title","body","published_at","archived_at"];
 
     public static function unarchived(){
-        return self::whereNull('archived_at')->get();
+        return self::whereNull('archived_at');
     }
     public static function archived(){
-        return self::whereNotNull('archived_at')->get();
+        return self::whereNotNull('archived_at');
     }
 
     public function archive(){

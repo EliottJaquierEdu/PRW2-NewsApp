@@ -13,7 +13,10 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = request()->has("archived") ? Article::archived() : Article::unarchived();
-        return view("articles.index",["articles"=>$articles]);
+        if(request()->has("search")){
+            $articles = $articles->where('title', 'like', "%".(request()->get("search"))."%");
+        }
+        return view("articles.index",["articles"=>$articles->get()]);
     }
 
     /**
