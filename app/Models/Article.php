@@ -12,6 +12,9 @@ class Article extends Model
     public static function unarchived(){
         return self::whereNull('archived_at')->get();
     }
+    public static function archived(){
+        return self::whereNotNull('archived_at')->get();
+    }
 
     public function archive(){
         //$this->archived_at = now();
