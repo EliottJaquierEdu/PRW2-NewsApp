@@ -12,7 +12,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::unarchived();
+        $articles = request()->has("archived") ? Article::archived() : Article::unarchived();
         return view("articles.index",["articles"=>$articles]);
     }
 
