@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('articles',\App\Http\Controllers\ArticleController::class);
-Route::resource('articles.comments',\App\Http\Controllers\CommentController::class)->only(["store"]);
+Route::resource('articles',ArticleController::class);
+Route::resource('articles.comments',CommentController::class)->only(["store"]);
