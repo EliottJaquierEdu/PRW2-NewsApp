@@ -4,11 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Article extends Model
 {
     //Mass assignment
     protected $fillable = ["title", "body", "published_at", "archived_at"];
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class,"article_id");
+    }
 
     public function scopeUnarchived(Builder $query)
     {

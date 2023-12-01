@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('articles.comments',\App\Http\Controllers\CommentController::class);
 Route::resource('articles',\App\Http\Controllers\ArticleController::class);
