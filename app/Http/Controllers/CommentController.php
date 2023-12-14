@@ -17,10 +17,11 @@ class CommentController extends Controller
         $validated = $request->validate([
             "body"=>"required"
         ]);
-        Comment::create([
+        $article->comments()->create($validated);
+        /*Comment::create([
             'body'=>$validated['body'],
             'article_id'=>$article->id,
-        ]);
+        ]);*/
         return redirect()->route("articles.show",["article"=>$article->id]);
     }
 }
