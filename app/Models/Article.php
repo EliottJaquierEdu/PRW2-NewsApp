@@ -19,6 +19,14 @@ class Article extends Model
         return $this->hasMany(Comment::class,"article_id");
     }
 
+    /**
+     * Get the comments for the blog post.
+     */
+    public function tags(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
     public function scopeUnarchived(Builder $query)
     {
         $query->whereNull('archived_at');

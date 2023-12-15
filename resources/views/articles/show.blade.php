@@ -11,6 +11,10 @@
     <input type="submit" value="Supprimer">
 </form>
 <a href="{{route("articles.edit",$article)}}">Modifier</a>
+<h3>Tags :</h3>
+@foreach($tags as $tag)
+    <p>{{ $tag->name }}</p>
+@endforeach
 <h3>Comments :</h3>
 @foreach($comments as $comment)
 <p>{{ $comment->body  }}</p>

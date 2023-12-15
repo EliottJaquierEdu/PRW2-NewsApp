@@ -46,7 +46,8 @@ class ArticleController extends Controller
         //TODO : Comment error handling
         $comment = new Comment();
         $comments = $article->comments()->get();
-        return view("articles.show",compact("article","comment","comments"));
+        $tags = $article->tags()->get();
+        return view("articles.show",compact("article","comment","comments","tags"));
     }
 
     /**
