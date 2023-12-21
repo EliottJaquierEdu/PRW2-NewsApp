@@ -12,9 +12,7 @@
 </form>
 <a href="{{route("articles.edit",$article)}}">Modifier</a>
 <h3>Tags :</h3>
-@foreach($tags as $tag)
-    <p>{{ $tag->name }}</p>
-@endforeach
+@include('tags.list')
 <h4>Add a new tag</h4>
 <form method="POST" action="{{ route("articles.tags.associate",["article"=>$article]) }}">
     @csrf
