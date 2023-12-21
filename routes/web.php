@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::resource('articles',ArticleController::class);
 Route::resource('articles.comments',CommentController::class)->only(["store"]);
 Route::post('/articles/{article}/tags',[TagController::class,"associate"])->name("articles.tags.associate");
+Route::delete('/articles/{article}/tags/{tag}',[TagController::class,"dissociate"])->name("articles.tags.dissociate");
