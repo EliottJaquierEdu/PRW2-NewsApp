@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -47,7 +48,8 @@ class ArticleController extends Controller
         $comment = new Comment();
         $comments = $article->comments()->get();
         $tags = $article->tags()->get();
-        return view("articles.show",compact("article","comment","comments","tags"));
+        $allTags = Tag::all();
+        return view("articles.show",compact("article","comment","comments","tags","allTags"));
     }
 
     /**

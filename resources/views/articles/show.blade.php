@@ -15,12 +15,25 @@
 @foreach($tags as $tag)
     <p>{{ $tag->name }}</p>
 @endforeach
+<h4>Add a new tag</h4>
+<form method="POST" action="{{ route("articles.tags.associate",["article"=>$article]) }}">
+    @csrf
+    <label>
+        Tag to add
+        <select name="tag">
+            @foreach($allTags as $tag)
+                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+            @endforeach
+        </select>
+    </label>
+    <input type="submit">
+</form>
 <h3>Comments :</h3>
 @foreach($comments as $comment)
 <p>{{ $comment->body  }}</p>
 @endforeach
 @if($article->archived_at == null)
-<h3>Post a new comment</h3>
+<h4>Post a new comment</h4>
 <form method="POST" action="{{ route("articles.comments.store",["article"=>$article]) }}">
     @csrf
     @include('comments.fields')
