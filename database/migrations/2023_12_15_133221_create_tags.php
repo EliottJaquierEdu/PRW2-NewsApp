@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string("name");
         });
+        //This needs to be Alphabetical
         Schema::create('article_tag', function (Blueprint $table) {
             $table->foreignId("tag_id")->constrained()->cascadeOnDelete();
             $table->foreignId("article_id")->constrained()->cascadeOnDelete();
