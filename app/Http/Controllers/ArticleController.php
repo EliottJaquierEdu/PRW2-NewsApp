@@ -19,6 +19,7 @@ class ArticleController extends Controller
         if(request()->has("search")){
             $articles->search("title",request()->get("search"));
         }
+        $articles->orderByCreationDate();
         return view("articles.index",["articles"=>$articles->get()]);
     }
 

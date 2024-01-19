@@ -42,6 +42,11 @@ class Article extends Model
         $query->where($column,"LIKE","%$content%");
     }
 
+    public function scopeOrderByCreationDate(Builder $query)
+    {
+        $query->orderBy('created_at', "DESC");
+    }
+
     public function archive()
     {
         //$this->archived_at = now();
